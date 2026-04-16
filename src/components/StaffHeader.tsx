@@ -27,8 +27,8 @@ const StaffHeader = () => {
             </div>
           </div>
 
-          {role === "admin" && (
-            <nav className="hidden md:flex items-center gap-1 text-sm">
+          <nav className="hidden md:flex items-center gap-1 text-sm">
+            {role === "admin" && (
               <Button
                 variant="ghost"
                 size="sm"
@@ -38,15 +38,19 @@ const StaffHeader = () => {
                 <ClipboardList className="h-3.5 w-3.5" />
                 Dashboard
               </Button>
+            )}
+            {(role === "admin" || role === "checkin_staff") && (
               <Button
                 variant="ghost"
                 size="sm"
-                className="font-heading gap-1.5 text-xs text-muted-foreground"
+                className="font-heading gap-1.5 text-xs"
                 onClick={() => navigate("/checkin")}
               >
                 <CheckCircle className="h-3.5 w-3.5" />
                 Check-in
               </Button>
+            )}
+            {(role === "admin" || role === "baggage_staff") && (
               <Button
                 variant="ghost"
                 size="sm"
@@ -56,8 +60,8 @@ const StaffHeader = () => {
                 <Package className="h-3.5 w-3.5" />
                 Baggage
               </Button>
-            </nav>
-          )}
+            )}
+          </nav>
         </div>
 
         <div className="flex items-center gap-3">
