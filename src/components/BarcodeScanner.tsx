@@ -95,7 +95,7 @@ const BarcodeScanner = ({ onDetected, active, onToggle }: BarcodeScannerProps) =
             {/* Alignment guide */}
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
               <div className="w-[80%] h-[35%] border-2 border-primary rounded-lg shadow-[0_0_0_9999px_rgba(0,0,0,0.35)]">
-                <div className="w-full h-px bg-red-500/80 mt-[calc(50%-1px)] animate-pulse" />
+                <div className="w-full h-px bg-destructive/80 mt-[calc(50%-1px)] animate-pulse" />
               </div>
             </div>
             <div className="absolute bottom-2 left-2 right-2 text-center">
