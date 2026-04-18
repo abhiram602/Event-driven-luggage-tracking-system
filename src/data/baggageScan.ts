@@ -107,6 +107,7 @@ export async function performScan(args: {
   location: WorkLocation | null;
   staffAirport: string;
   staffUserId: string;
+  method?: "single_scan" | "bulk_scan";
 }): Promise<ScanResult> {
   const tag = args.rawTag.trim().toUpperCase();
 
