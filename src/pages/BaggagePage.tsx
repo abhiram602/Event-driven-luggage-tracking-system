@@ -26,6 +26,7 @@ import {
   Clock,
 } from "lucide-react";
 import BarcodeScanner from "@/components/BarcodeScanner";
+import BulkScanPanel from "@/components/BulkScanPanel";
 import {
   WORK_LOCATIONS,
   WorkLocation,
