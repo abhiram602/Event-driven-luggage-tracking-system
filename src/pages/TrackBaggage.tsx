@@ -97,7 +97,7 @@ const TrackBaggage = () => {
         {result !== undefined && (
           <div className="mt-8">
             {result ? (
-              <PNRResult record={result} />
+              <PNRResult record={result} prefetchedBags={bags} prefetchedLogs={logs} />
             ) : (
               <Card className="animate-in fade-in duration-300">
                 <CardContent className="p-10 text-center">
