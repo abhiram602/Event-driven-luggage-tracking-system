@@ -279,11 +279,16 @@ const AdminDashboard = () => {
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="font-heading font-semibold text-lg">PNR Records</h3>
-                  <p className="text-sm text-muted-foreground">View and manage all passenger name records</p>
+                  <p className="text-sm text-muted-foreground">
+                    Showing {filteredRecords.length} of {records.length} records
+                  </p>
                 </div>
+                <Button variant="outline" size="sm" onClick={resetFilters} className="gap-1.5 font-heading text-xs">
+                  Reset Filters
+                </Button>
               </div>
 
-              <div className="relative mb-4">
+              <div className="relative mb-3">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search by PNR, name, flight, or route..."
@@ -291,6 +296,54 @@ const AdminDashboard = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-10"
                 />
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                <Select value={statusFilter} onValueChange={setStatusFilter}>
+                  <SelectTrigger className="text-sm">
+                    <SelectValue placeholder="Status" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Statuses</SelectItem>
+                    <SelectItem value="checked_in">Checked In</SelectItem>
+                    <SelectItem value="not_checked_in">Not Checked In</SelectItem>
+                  </SelectContent>
+                </Select>
+
+                <Select value={routeTypeFilter} onValueChange={setRouteTypeFilter}>
+                  <SelectTrigger className="text-sm">
+                    <SelectValue placeholder="Route Type" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Routes</SelectItem>
+                    <SelectItem value="direct">Direct Only</SelectItem>
+                    <SelectItem value="connecting">Connecting Only</SelectItem>
+                  </SelectContent>
+                </Select>
+
+                <Select value={sourceFilter} onValueChange={setSourceFilter}>
+                  <SelectTrigger className="text-sm">
+                    <SelectValue placeholder="Source Airport" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Sources</SelectItem>
+                    {airports.map((a) => (
+                      <SelectItem key={a.code} value={a.code}>{a.code} — {a.name}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
+                <Select value={destFilter} onValueChange={setDestFilter}>
+                  <SelectTrigger className="text-sm">
+                    <SelectValue placeholder="Destination Airport" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Destinations</SelectItem>
+                    {airports.map((a) => (
+                      <SelectItem key={a.code} value={a.code}>{a.code} — {a.name}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
 
               {loading ? (
