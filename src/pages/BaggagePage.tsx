@@ -67,6 +67,7 @@ const BaggagePage = () => {
   const [locked, setLocked] = useState<boolean>(() => !!localStorage.getItem(LOCATION_KEY));
   const [pendingLocation, setPendingLocation] = useState<WorkLocation | null>(location);
 
+  const [mode, setMode] = useState<"single" | "bulk">("single");
   const [scannerOn, setScannerOn] = useState(false);
   const [manualTag, setManualTag] = useState("");
   const [busy, setBusy] = useState(false);
