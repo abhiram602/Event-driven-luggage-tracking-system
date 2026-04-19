@@ -308,6 +308,10 @@ export type Database = {
         Returns: boolean
       }
       next_bag_tag: { Args: never; Returns: string }
+      staff_can_update_bag: {
+        Args: { _current_location: string; _pnr_code: string; _user_id: string }
+        Returns: boolean
+      }
     }
     Enums: {
       app_role: "admin" | "checkin_staff" | "baggage_staff"
