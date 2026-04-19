@@ -36,7 +36,6 @@ export type ScanStatus =
   | "collected";
 
 export const WORK_LOCATIONS: WorkLocation[] = [
-  "Check-in Counter",
   "Security Screening",
   "Sorting Area",
   "Loading Bay",
